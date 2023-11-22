@@ -7,10 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val imagen: ImageView
-    var nombre: TextView
 
     init {
-        imagen = view.findViewById(R.drawable.camel_svgrepo_com)
-        nombre = view.findViewById(R.id.nombre)
+        imagen = view.findViewById(R.id.imageView) // Asegúrate de que este sea el ID correcto en tu card.xml
+    }
+
+    fun bind(card: Card) {
+        // Suponiendo que card.item.itemID contiene el nombre del recurso en res/drawable
+        val resourceId = itemView.resources.getIdentifier(R.drawable.poker_svgrepo_com.toString(), "drawable", itemView.context.packageName)
+        imagen.setImageResource(resourceId)
     }
 }
+
