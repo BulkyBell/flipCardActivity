@@ -1,9 +1,10 @@
 package com.example.flipcardactivity
 
-class Card(public var item:Item, public var state:State):Comparable<Card> {
+class Card(public var state:State, public var item:Item) {
+
+     fun compare(other: Card): Boolean {
+        return (other.item == this.item)
+     }
 
 
-    override fun compareTo(other: Card): Int {
-        return TODO("NO SE Q PONER XD")
-    }
 }

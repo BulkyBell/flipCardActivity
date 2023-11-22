@@ -33,4 +33,17 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    private fun generateGame():ArrayList<Card>{
+        var item1=Item(R.drawable.bird_svgrepo_com)
+        var item2=Item(R.drawable.camel_svgrepo_com)
+        var array = arrayListOf<Card>()
+        array.add(Card(State.CLEARED,item1))
+        array.add(Card(State.CLEARED,item1))
+        array.add(Card(State.CLEARED,item2))
+        array.add(Card(State.CLEARED,item2))
+
+        array.shuffle()
+        return array
+    }
 }

@@ -1,5 +1,5 @@
 package com.example.flipcardactivity
 
-class Item(public var itemID:Int, ) {
-
+class Item(public var itemID:Int) {
+    
 }
