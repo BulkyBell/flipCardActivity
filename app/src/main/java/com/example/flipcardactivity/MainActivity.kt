@@ -17,7 +17,12 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.my_toolbar))
 
         val cardList = generateGame();
+        for (c:Card in
+            cardList){
+            if (c.state != State.HIDDEN){
 
+            }
+        }
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         val layoutManager = GridLayoutManager(this, 4)
         recyclerView.layoutManager = layoutManager
@@ -45,15 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun generateGame():ArrayList<Card>{
-        var item1=Item(R.drawable.bird_svgrepo_com)
-        var item2=Item(R.drawable.camel_svgrepo_com)
-        var array = arrayListOf<Card>()
-        array.add(Card(State.CLEARED,item1))
-        array.add(Card(State.CLEARED,item1))
-        array.add(Card(State.CLEARED,item2))
-        array.add(Card(State.CLEARED,item2))
-
-        array.shuffle()
-        return array
+        var elementos = arrayListOf<Card>()
+        return elementos
     }
 }
