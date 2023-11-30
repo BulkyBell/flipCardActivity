@@ -1,13 +1,44 @@
 package com.example.flipcardactivity
 
-class Category (public var name:String, public var imageID:Int){
-    private var element=ArrayList<Item>()
+class Category(public var name: String, public var imageID: Int) {
+    private var elements = ArrayList<Card>()
 
-    fun addItem(item:Item){
-        this.element.add(item)
+    fun addItem(card: Card) {
+        this.elements.add(card)
     }
 
-    fun getAllItems():ArrayList<Item>{
-        return this.element
+    fun getAllItems(): ArrayList<Card> {
+        return this.elements
+    }
+
+    fun shuffleItems() {
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
+        this.elements.shuffle()
     }
 }
