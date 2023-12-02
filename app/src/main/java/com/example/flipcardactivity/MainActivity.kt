@@ -3,6 +3,7 @@ package com.example.flipcardactivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -16,6 +17,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var pokemonCategory: Category
     private lateinit var selectedCategory: Category
 
+    private lateinit var btnAnimals: Button
+    private lateinit var btnKebabs: Button
+    private lateinit var btnPokemon: Button
     private fun shuffleAllCategories() {
         animalCategory.shuffleItems()
         kebabCategory.shuffleItems()
@@ -25,12 +29,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        btnAnimals = findViewById(R.id.btnAnimals)
+        btnKebabs = findViewById(R.id.btnKebabs)
+        btnPokemon = findViewById(R.id.btnPokemon)
+
         setSupportActionBar(findViewById(R.id.my_toolbar))
 
         animalCategory = Category("Animals", R.drawable.crocodile_svgrepo_com)
         kebabCategory = Category("Kebabs", R.drawable.kebab3)
         pokemonCategory = Category("Pokemon", R.drawable.pokeball)
-
 
         animalCategory.addItem(Card(State.CLEARED, Item(R.drawable.bear_svgrepo_com)))
         animalCategory.addItem(Card(State.CLEARED, Item(R.drawable.bear_svgrepo_com)))
@@ -88,14 +96,30 @@ class MainActivity : AppCompatActivity() {
 
         selectedCategory = animalCategory
 
-
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         val layoutManager = GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false)
         recyclerView.layoutManager = layoutManager
 
-
         val adapter = AdaptadorReciclerView(selectedCategory.getAllItems())
         recyclerView.adapter = adapter
+
+        btnAnimals.setOnClickListener {
+            selectedCategory = animalCategory
+            adapter.updateData(selectedCategory.getAllItems())
+            adapter.notifyDataSetChanged()
+        }
+
+        btnKebabs.setOnClickListener {
+            selectedCategory = kebabCategory
+            adapter.updateData(selectedCategory.getAllItems())
+            adapter.notifyDataSetChanged()
+        }
+
+        btnPokemon.setOnClickListener {
+            selectedCategory = pokemonCategory
+            adapter.updateData(selectedCategory.getAllItems())
+            adapter.notifyDataSetChanged()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

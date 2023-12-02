@@ -7,7 +7,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="95dp"
-        android:layout_height="122dp"
-        app:srcCompat="@drawable/poker_svgrepo_com" />
+        android:layout_width="89dp"
+        android:layout_height="104dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/poker_svgrepo_com" />
 </androidx.cardview.widget.CardView>

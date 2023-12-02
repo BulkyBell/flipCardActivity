@@ -4,6 +4,7 @@ class Category(public var name: String, public var imageID: Int) {
     private var elements = ArrayList<Card>()
 
     fun addItem(card: Card) {
+        card.item.itemID = R.drawable.poker_svgrepo_com
         this.elements.add(card)
     }
 
